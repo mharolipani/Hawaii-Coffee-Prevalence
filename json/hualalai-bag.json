@@ -1,14 +1,5 @@
 {
   "name": "Hualalai Medium Dark Roast",
   "description": "Premium roasted coffee from the slopes of Hualalai.",
-  "image": "https://gray-selected-condor-526.mypinata.cloud/ipfs/bafybeibdcpuh6ebh75pm2ixq6d6nhnyx7cuiuia6wzicqx6pcfya2uvos4",
-  "attributes": [
-    { "trait_type": "Batch", "value": "2" },
-    { "trait_type": "Origin", "value": "Big Island, HI" },
-    { "trait_type": "Variety", "value": "Hualalai" },
-    { "trait_type": "Processing Method", "value": "Natural" },
-    { "trait_type": "Harvest Date", "value": "2026-02-23" },
-    { "trait_type": "Roast Level", "value": "Medium Dark" },
-    { "trait_type": "Batch Status", "value": "Roasted" }
-  ]
+  "image": "https://gray-selected-condor-526.mypinata.cloud/ipfs/bafybeibdcpuh6ebh75pm2ixq6d6nhnyx7cuiuia6wzicqx6pcfya2uvos4"
 }

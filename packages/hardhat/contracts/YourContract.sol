@@ -9,29 +9,35 @@ import {ERC1155} from "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
 // import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract CoffeeTracker is ERC1155 {
-    uint public nextBatchId = 1;
+    uint public currentBatchId = 1;
 
-    struct Batch {
+    struct CoffeeBatch {
         string farmName;
+        string region;
         string variety;
-        string harvestDate;
+        uint256 harvestDate;
     }
 
-    mapping(uint256 => Batch) public batches;
+    mapping(uint256 => CoffeeBatch) public batches;
 
-    event CoffeeHarvested(uint256 indexed batchId, string farmName);
+    constructor() ERC1155("https://gray-selected-condor-526.mypinata.cloud/ipfs/bafybeihm357xwzj5casusvs4qaxxxnl2jjlnxmnvczfrdwi75vu7nkfqru/{id}.json") {}
 
-    constructor() ERC1155("https://gray-selected-condor-526.mypinata.cloud/ipfs/bafybeiegdmya23eog7v5kp2u5xfxmwolnh2n4r2zbbizqixfxrdkto7oge/{id}.json") {}
+    event Harvested(uint256 indexed batchId, string farmName, string region, string variety, uint256 harvestDate);
 
-    function trackHarvest(string memory _farm, string memory _variety, string memory _date, uint256 _quantity) public {
-        uint currentId = nextBatchId;
+    function harvestBatch(string memory _farm, string memory _region, string memory _variety, uint256 _quantity) public {
+        uint batchId = currentBatchId;
 
-        batches[currentId] = Batch(_farm, _variety, _date);
+        batches[batchId] = CoffeeBatch({
+            farmName: _farm,
+            region: _region,
+            variety: _variety,
+            harvestDate: block.timestamp
+        });
 
-        _mint(msg.sender, currentId, _quantity, "");
+        _mint(msg.sender, batchId, _quantity, "");
 
-        emit CoffeeHarvested(currentId, _farm);
+        emit Harvested(batchId, _farm, _region, _variety, block.timestamp);
 
-        nextBatchId++;
+        currentBatchId++;
     }
 }

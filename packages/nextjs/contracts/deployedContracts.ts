@@ -7,7 +7,7 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 const deployedContracts = {
   31337: {
     CoffeeTracker: {
-      address: "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
+      address: "0x0165878A594ca255338adfa4d48449f69242Eb8F",
       abi: [
         {
           inputs: [],
@@ -156,8 +156,26 @@ const deployedContracts = {
               name: "farmName",
               type: "string",
             },
+            {
+              indexed: false,
+              internalType: "string",
+              name: "region",
+              type: "string",
+            },
+            {
+              indexed: false,
+              internalType: "string",
+              name: "variety",
+              type: "string",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "harvestDate",
+              type: "uint256",
+            },
           ],
-          name: "CoffeeHarvested",
+          name: "Harvested",
           type: "event",
         },
         {
@@ -318,16 +336,62 @@ const deployedContracts = {
             },
             {
               internalType: "string",
-              name: "variety",
+              name: "region",
               type: "string",
             },
             {
               internalType: "string",
-              name: "harvestDate",
+              name: "variety",
               type: "string",
+            },
+            {
+              internalType: "uint256",
+              name: "harvestDate",
+              type: "uint256",
             },
           ],
           stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "currentBatchId",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "string",
+              name: "_farm",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "_region",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "_variety",
+              type: "string",
+            },
+            {
+              internalType: "uint256",
+              name: "_quantity",
+              type: "uint256",
+            },
+          ],
+          name: "harvestBatch",
+          outputs: [],
+          stateMutability: "nonpayable",
           type: "function",
         },
         {
@@ -349,19 +413,6 @@ const deployedContracts = {
               internalType: "bool",
               name: "",
               type: "bool",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "nextBatchId",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
             },
           ],
           stateMutability: "view",
@@ -473,34 +524,6 @@ const deployedContracts = {
         {
           inputs: [
             {
-              internalType: "string",
-              name: "_farm",
-              type: "string",
-            },
-            {
-              internalType: "string",
-              name: "_variety",
-              type: "string",
-            },
-            {
-              internalType: "string",
-              name: "_date",
-              type: "string",
-            },
-            {
-              internalType: "uint256",
-              name: "_quantity",
-              type: "uint256",
-            },
-          ],
-          name: "trackHarvest",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
               internalType: "uint256",
               name: "",
               type: "uint256",
@@ -519,7 +542,7 @@ const deployedContracts = {
         },
       ],
       inheritedFunctions: {},
-      deployedOnBlock: 5,
+      deployedOnBlock: 9,
     },
     YourContract: {
       address: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
