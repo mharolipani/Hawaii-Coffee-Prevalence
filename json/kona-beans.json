@@ -1,0 +1,14 @@
+{
+  "name": "Kona Green Beans",
+  "description": "Raw beans harvested from the Kona district.",
+  "image": "https://gray-selected-condor-526.mypinata.cloud/ipfs/bafybeigvls4fpoyndmsho3iqk2ng373ephfbydihurdkt2w3uwuwuydl4q",
+  "attributes": [
+    { "trait_type": "Batch", "value": "1" },
+    { "trait_type": "Origin", "value": "Kona, HI" },
+    { "trait_type": "Variety", "value": "Kona" },
+    { "trait_type": "Processing Method", "value": "Washed" },
+    { "trait_type": "Harvest Date", "value": "2026-02-23" },
+    { "trait_type": "Roast Level", "value": "Raw" },
+    { "trait_type": "Batch Status", "value": "Unprocessed" }
+  ]
+}
