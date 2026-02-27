@@ -30,7 +30,10 @@ const deployYourContract: DeployFunction = async function (hre: HardhatRuntimeEn
 
   // Get the deployed contract to interact with it after deploying.
   const coffeeTracker = await hre.ethers.getContract<Contract>("CoffeeTracker", deployer);
-  console.log("👋 Initial greeting:", await coffeeTracker.greeting());
+
+  // Log something that actually exists on the contract
+  const currentBatchId = await coffeeTracker.currentBatchId();
+  console.log("☕ CoffeeTracker deployed. Current batch ID:", currentBatchId.toString());
 };
 
 export default deployYourContract;
